@@ -1,0 +1,29 @@
+import discord
+from discord.ext import commands
+import  random
+  
+random_tips = random.choice['ВЫБРОСИ МУСОР ЧЕЛОВЕЧУШКА ', 'НЕ ПЫТАЙСЯ УЙТИ ОТ ОБЯЗОНОСТЕЙ ЧЕЛОВЕЧУШКА...', 'ЕСЛИ ТЫ... ЧЕЛОВЕЧУШКА, ВЫКЕНЕШЬ СВОЙ МУСОР НА ПОЛ... Я НАЙДУ ТЕБЯ', 'НЕ ПЫТАЙСЯ ПОТРАТИТЬ ВОДУ В ПУСТУЮ ЧЕЛОВЕЧУШКА...']
+import requests
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+ 
+@bot.command()
+async def mem(ctx):
+ img_name = random.choice(os.listdir("КАРТИНКИ"))
+ with open(f'КАРТИНКИ/{img_name}', 'rb') as f:
+        # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
+        picture = discord.File(f)
+   # Можем передавать файл как параметр!
+    await ctx.send(file=picture)
+
+@bot.command()
+async def how_many_pounds_in_the_world(ctx):
+    await ctx.send(total_pounds)
+
+bot.run("MTE1NDgwNjk4Mjk3MzM0NTg4Mg.GVF6ol.t02Q198OtLFewBURxm4dBOAUTyvDOPxxvJG0VM")
